@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mr Yinka Gym Session</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header {
+      width: 100%;
+      background: #0b2342;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+    header img {
+      height: 50px;
+    }
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      color: #ffdd59;
+    }
+
+    main {
+      max-width: 900px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 30px;
+      margin: 30px 15px;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+    }
+    h2 {
+      color: #ffdd59;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    form {
+      background: rgba(255,255,255,0.15);
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 400px;
+      margin: 0 auto 30px;
+      box-shadow: inset 0 0 10px rgba(255,255,255,0.2);
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+    }
+    input[type="date"] {
+      background: #fff;
+      color: #000;
+    }
+    button[type="submit"], #whatsappBtn {
+      width: 100%;
+      background: #ffdd59;
+      color: #0b2342;
+      font-weight: 700;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      box-shadow: 0 4px 8px rgba(255,221,89,0.6);
+    }
+    button[type="submit"]:hover, #whatsappBtn:hover {
+      background: #e6c84b;
+    }
+    #whatsappBtn {
+      display: none;
+      margin-top: 10px;
+    }
+
+    #countdown {
+      font-size: 1.2rem;
+      text-align: center;
+      margin-top: 20px;
+      font-weight: 700;
+      color: #ffdd59;
+    }
+    #notification {
+      background: #1f8a70;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      border-radius: 12px;
+      margin: 20px auto 0;
+      max-width: 400px;
+      display: none;
+      font-weight: 600;
+    }
+
+    /* Video section */
+    .video-section {
+      margin: 40px 0;
+      text-align: center;
+    }
+    .video-section iframe {
+      max-width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    }
+
+    /* Location section */
+    .location {
+      margin-top: 40px;
+      background: rgba(255,255,255,0.1);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+    .location h3 {
+      color: #ffdd59;
+      margin-bottom: 15px;
+    }
+    .location p {
+      font-size: 1rem;
+      margin: 0 0 15px;
+    }
+    .location iframe {
+      width: 100%;
+      height: 250px;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+
+    @media (max-width: 500px) {
+      main {
+        padding: 20px 15px;
+      }
+      form {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://cdn-icons-png.flaticon.com/512/2972/2972185.png" alt="Gym Logo" />
+    <h1>Mr Yinka Gym Session</h1>
+  </header>
+
+  <main>
+    <h2>Book Your Gym Session</h2>
+    <form id="bookingForm">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Your email address" required />
+
+      <label for="class">Choose a Class</label>
+      <select id="class" name="class" required>
+        <option value="">-- Select a Class --</option>
+        <option value="Yoga">Yoga</option>
+        <option value="Strength Training">Strength Training</option>
+        <option value="Cardio">Cardio</option>
+      </select>
+
+      <label for="date">Choose a Date</label>
+      <input type="date" id="date" name="date" required />
+
+      <div style="margin-bottom: 15px; color: #ffdd59; font-weight: 600;">
+        <p>Payment Account: <strong>7061320784 Palmpay</strong></p>
+        <p>Please make your payment before booking.</p>
+      </div>
+
+      <button type="submit">Book Now</button>
+    </form>
+
+    <button id="whatsappBtn">Send Booking to WhatsApp</button>
+
+    <div id="countdown"></div>
+    <div id="notification"></div>
+
+    <section class="video-section">
+      <h2>Workout Videos</h2>
+      <!-- Example embedded YouTube videos -->
+      <iframe src="https://www.youtube.com/embed/dhCM0C6GnrY" title="Full Body Workout" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+      <iframe src="https://www.youtube.com/embed/UItWltVZZmE" title="Strength Training" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+    </section>
+
+    <section class="location">
+      <h3>Our Location</h3>
+      <p>28 Drankenstein Street, Ext 4, Lenasia South, Gauteng Province</p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3581.9849618496236!2d27.91367881501246!3d-26.314267283498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e956b7ed7b1604b%3A0x921ca5f9e334dfdb!2s28%20Drankenstein%20St%2C%20Lenasia%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1701837360971!5m2!1sen!2sza" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+  </main>
+
+  <script>
+    const bookingForm = document.getElementById('bookingForm');
+    const whatsappBtn = document.getElementById('whatsappBtn');
+    const countdownEl = document.getElementById('countdown');
+    const notificationEl = document.getElementById('notification');
+
+    // Your WhatsApp number
+    const yourNumber = '2349120748918';
+
+    bookingForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Get form values
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const gymClass = document.getElementById('class').value;
+      const date = document.getElementById('date').value;
+
+      // Validate date (should be today or future)
+      if (new Date(date) < new Date(new Date().toDateString())) {
+        alert('Please select today or a future date.');
+        return;
+      }
+
+      // Create WhatsApp message text
+      const message = `Hello! I want to book a gym session.%0AName: ${name}%0AEmail: ${email}%0AClass: ${gymClass}%0ADate: ${date}`;
+      const whatsappURL = `https://wa.me/${yourNumber}?text=${message}`;
+
+      // Show WhatsApp button
+      whatsappBtn.style.display = 'block';
+      whatsappBtn.onclick = () => {
+        window.open(whatsappURL, '_blank');
+      };
+
+      // Show notification to user
+      notificationEl.style.display = 'block';
+      notificationEl.textContent = `Thank you, ${name}! You’ll be notified when your session time is complete.`;
+
+      // Setup countdown timer to session date at 9:00 AM
+      const countdownDate = new Date(date + 'T09:00:00').getTime();
+
+      // Clear any existing interval
+      if (window.countdownInterval) clearInterval(window.countdownInterval);
+
+      countdownEl.style.display = 'block';
+
+      window.countdownInterval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = countdownDate - now;
+
+        if (distance < 0) {
+          clearInterval(window.countdownInterval);
+          countdownEl.textContent = 'Your gym session time is complete! Great job!';
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownEl.textContent = `Time until your session: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }, 1000);
+    });
+  </script>
+
+</body>
+</html>
